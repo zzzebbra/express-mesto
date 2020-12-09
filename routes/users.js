@@ -8,7 +8,7 @@ userRouter.get('/users/:id', (req, res) => {
     return;
   }
 
-  res.send(404, { message: 'Нет пользователя с таким id' });
+  res.status(404).send({ message: 'Нет пользователя с таким id' });
 });
 
 userRouter.get('/users', (req, res) => {
