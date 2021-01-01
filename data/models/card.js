@@ -1,3 +1,5 @@
+import user from './user';
+
 const mongoose = require('mongoose');
 
 const cardSchema = new mongoose.Schema({
@@ -12,7 +14,8 @@ const cardSchema = new mongoose.Schema({
     required: true,
   },
   owner: {
-    type: ObjectId,
+    user: user._id,
+    required: true,
   },
   likes: {
 
