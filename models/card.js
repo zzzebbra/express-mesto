@@ -1,6 +1,5 @@
-import user from './user';
-
 const mongoose = require('mongoose');
+const user = require('./user');
 
 const cardSchema = new mongoose.Schema({
   name: {
@@ -14,14 +13,18 @@ const cardSchema = new mongoose.Schema({
     required: true,
   },
   owner: {
-    user: user._id,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: user,
     required: true,
   },
-  likes: {
-
-  },
+  likes: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: user,
+    default: [],
+  }],
   createdAt: {
-    type: Date.now,
+    type: Date,
+    default: Date.now,
   },
 });
 
